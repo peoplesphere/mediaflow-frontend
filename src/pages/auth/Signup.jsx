@@ -72,7 +72,7 @@ function Signup() {
                         <input
                             name='password'
                             type='password'
-                            value={formData.email}
+                            value={formData.password}
                             onChange={handleChange}
                             placeholder='Password'
                             required
@@ -82,7 +82,7 @@ function Signup() {
 
                     <button
                         type='submit'
-                        disable={loading}
+                        disabled={loading}
                         className="bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         {loading ? "Creating Account" : "Create Account"}
