@@ -10,7 +10,7 @@ const useAuth = () => {
         isAuthenticated,
         loading,
         error
-    } = useSelector()
+    } = useSelector((state) => (state.auth))
 
     const signup = async (userData) => {
         try {
