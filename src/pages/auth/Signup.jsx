@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import useAuth from "../../features/auth/hooks/useAuth"
+import toast from 'react-hot-toast'
 
 function Signup() {
     const navigate = useNavigate()
@@ -24,8 +25,11 @@ function Signup() {
         e.preventDefault()
         try {
             await signup(formData)
+            toast.success('Account created successfully! 🎉')
+            navigate('/auth/login')
         } catch (error) {
             console.log("Error:", error);
+            toast.error(error.response?.data?.message || 'Signup failed')
         }
 
     }
@@ -33,7 +37,7 @@ function Signup() {
         <div className='min-h-screen flex items-center justify-center bg-gray-50'>
             <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
                 <h1 className="text-2xl font-bold text-gray-800 mb-2">Create account</h1>
-                <p className="text-gray-500 mb-6">Start using MediaFlow for free</p>
+                <p className="text-gray-500 mb-6">Start using AIMS for free</p>
 
                 {/* Error Message */}
                 {error && (
@@ -83,7 +87,7 @@ function Signup() {
                     <button
                         type='submit'
                         disabled={loading}
-                        className="bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
                     >
                         {loading ? "Creating Account" : "Create Account"}
                     </button>
@@ -94,8 +98,6 @@ function Signup() {
                     </p>
                 </form>
             </div>
-
-
         </div >
     )
 }

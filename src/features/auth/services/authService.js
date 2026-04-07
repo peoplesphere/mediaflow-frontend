@@ -3,12 +3,12 @@ import api from "../../../services/api";
 const authService = {
 
     signup: async (userData) => {
-        const response = await api.post('/auth/signup', userData);
+        const response = await api.post('/auth/register', userData);
         return response.data;
     },
 
     login: async (credentials) => {
-        const response = await api.get('/auth/login', credentials);
+        const response = await api.post('/auth/login', credentials);
         return response.data;
     },
 

@@ -16,7 +16,7 @@ const useAuth = () => {
         try {
             dispatch(setLoading(true))
             const data = await authService.signup(userData)
-            dispatch(setCredentials({ user: data.user, token: data.token }))
+            dispatch(setCredentials({ user: data.data?.user, token: data.data?.accessToken }))
         } catch (error) {
             dispatch(setError(error.response?.data?.message || 'Signup Failed'))
         } finally {
@@ -27,8 +27,9 @@ const useAuth = () => {
     const login = async (credentials) => {
         try {
             dispatch(setLoading(true))
-            const data = authService.login(credentials)
-            dispatch(setCredentials({ user: data.user, token: data.token }))
+            const data = await authService.login(credentials)
+            console.log("data->", data);
+            dispatch(setCredentials({ user: data.data?.user, token: data.data?.accessToken }))
         } catch (error) {
             dispatch(setError(error.response?.data?.message || 'login Failed'))
         } finally {
@@ -39,8 +40,8 @@ const useAuth = () => {
     const logoutUser = async () => {
         try {
             dispatch(setLoading(true))
-            const data = authService.logout()
-            dispatch(setCredentials({ user: null, token: null }))
+            await authService.logout()
+            dispatch(logout())
         } catch (error) {
             dispatch(setError(error.response?.data?.message || 'logout Failed'))
         } finally {
