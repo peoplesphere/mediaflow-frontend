@@ -37,8 +37,8 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/file/AddFile" element={<AddFile />} />
-          <Route path="/file/AllFiles" element={<AllFiles />} />
+          <Route path="/file/add-file" element={<AddFile />} />
+          <Route path="/file/all-files" element={<AllFiles />} />
           <Route path="/file/:fileId" element={<SingleFile />} />
         </Route >
 
