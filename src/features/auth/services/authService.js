@@ -4,7 +4,10 @@ const authService = {
 
     signup: async (userData) => {
         const response = await api.post('/auth/register', userData);
-        return response.data;
+        const { accessToken, refreshToken } = response.data.data
+        localStorage.setItem("accessToken", accessToken)
+        localStorage.setItem("refreshToken", refreshToken)
+        return response.data.data;
     },
 
     login: async (credentials) => {

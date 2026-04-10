@@ -46,6 +46,10 @@ function AddFile() {
                 fileSize: file.size,
             })
 
+            console.log('presignedUrl:', presignedUrl)
+            console.log('fileId:', fileId)
+
+
             // step2. upload file to s3 
             toast.dismiss()
             toast.loading("Uploading to client....")

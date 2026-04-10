@@ -21,7 +21,8 @@ function Login() {
         try {
             login(formData)
             toast.success('Login Successful! 🚀')
-            navigate('/dashboard')
+            // navigate('/dashboard')
+            navigate('/file/add-file')
         } catch (error) {
             console.log("error:", error);
             toast.error(error.response?.data?.message || 'Login Failed')

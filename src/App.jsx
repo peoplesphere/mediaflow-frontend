@@ -37,9 +37,9 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/file/add-file" element={<AddFile />} />
-          <Route path="/file/all-files" element={<AllFiles />} />
-          <Route path="/file/:fileId" element={<SingleFile />} />
+          <Route path="/files/add-file" element={<AddFile />} />
+          <Route path="/files/all-files" element={<AllFiles />} />
+          <Route path="/files/:fileId" element={<SingleFile />} />
         </Route >
 
         {/* 404  */}
