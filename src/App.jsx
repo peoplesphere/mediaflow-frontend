@@ -13,7 +13,7 @@ const SingleFile = lazy(() => { return import('./pages/files/SingleFile') })
 const NotFound = lazy(() => { return import('./pages/NotFound') })
 
 import ProtectedRoute from "./components/ProtectedRoute";
-import ProfilePage from "./pages/profile/Profile";
+// import ProfilePage from "./pages/profile/Profile";
 // import NotFound from "./pages/NotFound";
 
 function App() {
