@@ -22,7 +22,7 @@ function Login() {
             login(formData)
             toast.success('Login Successful! 🚀')
             // navigate('/dashboard')
-            navigate('/file/add-file')
+            navigate('/dashboard')
         } catch (error) {
             console.log("error:", error);
             toast.error(error.response?.data?.message || 'Login Failed')
@@ -30,59 +30,77 @@ function Login() {
     }
 
     return (
-        <div className='min-h-screen flex items-center justify-center bg-gray-50'>
-            <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-                <h1 className="text-2xl font-bold text-gray-800 mb-2">Login to AIMS</h1>
-                <p className="text-gray-500 mb-6">Start using AIMS for free</p>
+        <div className='min-h-screen flex items-center justify-center bg-[#0f0f0f] font-["DM_Sans",sans-serif]'>
+            <div className="relative bg-[#161616] border border-[#2a2a2a] rounded-2xl w-full max-w-md px-9 py-10 overflow-hidden">
+
+                {/* Top accent line */}
+                <div className="absolute top-0 left-9 right-9 h-0.5 bg-gradient-to-r from-blue-500 to-violet-400 rounded-b" />
+
+                <span className="font-mono text-[11px] tracking-widest text-blue-400 uppercase mb-5 block">
+                    AIMS Platform
+                </span>
+                <h1 className="text-[26px] font-semibold text-[#f0f0f0] leading-tight mb-1.5">
+                    Welcome back
+                </h1>
+                <p className="text-sm font-light text-[#666] mb-8">
+                    Sign in to your account to continue
+                </p>
 
                 {/* Error Message */}
                 {error && (
-                    <div className="bg-red-50 text-red-600 px-4 py-3 rounded-lg mb-4 text-sm">
+                    <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-3.5 py-3 rounded-lg mb-5 text-[13px]">
                         {error}
                     </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                    <div className='flex flex-col gap-1'>
-                        <label className="text-sm font-medium text-gray-700">Email</label>
+                    <div className="flex flex-col gap-1.5">
+                        <label className="text-[12px] font-medium text-[#888] tracking-[0.04em] uppercase">
+                            Email Address
+                        </label>
                         <input
-                            name='email'
-                            type='email'
+                            name="email"
+                            type="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder='Email'
+                            placeholder="you@company.com"
                             required
-                            className="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="bg-[#1e1e1e] border border-[#2e2e2e] rounded-lg px-3.5 py-[11px] text-sm text-[#e8e8e8] placeholder-[#3a3a3a] focus:outline-none focus:border-blue-500 focus:bg-[#1a1a1e] focus:ring-2 focus:ring-blue-500/10 transition-all"
                         />
                     </div>
-                    <div className='flex flex-col gap-1'>
-                        <label className="text-sm font-medium text-gray-700">Password</label>
+
+                    <div className="flex flex-col gap-1.5">
+                        <label className="text-[12px] font-medium text-[#888] tracking-[0.04em] uppercase">
+                            Password
+                        </label>
                         <input
-                            name='password'
-                            type='password'
+                            name="password"
+                            type="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder='Password'
+                            placeholder="••••••••••"
                             required
-                            className="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="bg-[#1e1e1e] border border-[#2e2e2e] rounded-lg px-3.5 py-[11px] text-sm text-[#e8e8e8] placeholder-[#3a3a3a] focus:outline-none focus:border-blue-500 focus:bg-[#1a1a1e] focus:ring-2 focus:ring-blue-500/10 transition-all"
                         />
                     </div>
 
                     <button
-                        type='submit'
+                        type="submit"
                         disabled={loading}
-                        className="bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                        className="w-full bg-blue-500 hover:bg-blue-600 active:scale-[0.99] text-white py-3 rounded-lg text-sm font-medium tracking-wide disabled:opacity-40 disabled:cursor-not-allowed transition-all mt-1 cursor-pointer"
                     >
-                        {loading ? "Processing..." : "Login"}
+                        {loading ? "Signing in..." : "Sign in"}
                     </button>
 
-                    <p className='text-center text-sm text-gray-500 mt-6'>
-                        New to AIMS, Create account?
-                        <Link to="/auth/signup" className="text-blue-600 font-medium hover:underline">Register</Link>
+                    <p className="text-center text-[13px] text-[#555] mt-2">
+                        Don't have an account?{" "}
+                        <Link to="/auth/signup" className="text-blue-400 font-medium hover:underline ml-1">
+                            Register for free
+                        </Link>
                     </p>
                 </form>
             </div>
-        </div >
+        </div>
     )
 }
 

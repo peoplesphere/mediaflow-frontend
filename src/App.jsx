@@ -13,6 +13,7 @@ const SingleFile = lazy(() => { return import('./pages/files/SingleFile') })
 const NotFound = lazy(() => { return import('./pages/NotFound') })
 
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProfilePage from "./pages/profile/Profile";
 // import NotFound from "./pages/NotFound";
 
 function App() {
@@ -26,16 +27,15 @@ function App() {
       <Routes>
 
         {/* Public Routes  */}
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/plans" element={<LandingPage />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/auth/signup" element={<Signup />} />
         <Route path="/auth/login" element={<Login />} />
 
 
         {/* Protected Route  */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/files/add-file" element={<AddFile />} />
           <Route path="/files/all-files" element={<AllFiles />} />
