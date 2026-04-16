@@ -35,7 +35,7 @@ function App() {
 
         {/* Protected Route  */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/files/add-file" element={<AddFile />} />
           <Route path="/files/all-files" element={<AllFiles />} />
